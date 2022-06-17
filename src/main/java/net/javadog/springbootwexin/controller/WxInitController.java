@@ -1,5 +1,5 @@
 package net.javadog.springbootwexin.controller;
-import net.javadog.springbootwexin.common.AjaxJson;
+import net.javadog.springbootwexin.common.ResponseModel;
 import net.javadog.springbootwexin.service.WxService;
 import net.javadog.springbootwexin.utils.WxUtil;
 import org.slf4j.Logger;
@@ -39,16 +39,16 @@ public class WxInitController {
      4.将第三步获得的signature和jsapi_ticket,nonceStr,timestamp,url返回给前端，作为Config初始化验证的信息
     */
     @RequestMapping("/initWXJSSDKConfigInfo")
-    public AjaxJson initWXJSConfig (@RequestParam(required = false) String url) throws Exception{
+    public ResponseModel initWXJSConfig (@RequestParam(required = false) String url) throws Exception{
         logger.info("url=" + url);
         String json = "";
         try {
             Map map = wxService.initJSSDKConfig(url);
             json = WxUtil.mapToJson(map);
         }catch (Exception e){
-            AjaxJson.fail(e.getMessage());
+            ResponseModel.fail(e.getMessage());
         }
-        return AjaxJson.ok(json);
+        return ResponseModel.succ(json);
     }
 
 }

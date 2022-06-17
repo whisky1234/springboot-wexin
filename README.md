@@ -203,7 +203,7 @@ public class AjaxJson {
 **WxInitController.java**  - 微信初始化接入Controller控制器
 ```java
 package net.javadog.springbootwexin.controller;
-import net.javadog.springbootwexin.common.AjaxJson;
+import net.javadog.springbootwexin.common.ResponseModel;
 import net.javadog.springbootwexin.service.WxService;
 import net.javadog.springbootwexin.utils.WxUtil;
 import org.slf4j.Logger;
